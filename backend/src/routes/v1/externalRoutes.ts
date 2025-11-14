@@ -7,10 +7,12 @@
  */
 
 import { Router } from 'express';
+import * as weatherController from '@/api/v1/external/weather/controller';
 
 const router = Router();
 
-// Public routes will be added here as features are implemented
-// Example: router.use('/weather', weatherRoutes);
+// Weather routes
+router.get('/weather/current', weatherController.getCurrentHandler);
+router.post('/weather/refresh', weatherController.refreshHandler);
 
 export default router;
